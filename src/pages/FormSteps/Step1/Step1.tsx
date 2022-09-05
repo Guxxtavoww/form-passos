@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Step1Container } from "./styles";
 import { useForm, FormActions } from "../../../contexts/FormContext";
 
-const Step1 = () => {    
+const Step1: React.FC = () => {    
     const navigation = useNavigate();
 
     const { state, dispatch } = useForm();

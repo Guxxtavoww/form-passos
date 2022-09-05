@@ -4,7 +4,7 @@ import * as C from "./app.styles";
 import { Step1, Step2, Step3 } from "./pages";
 import { Header, Sidebar } from "./components";
 
-const App = () => {
+const App: React.FC = () => {
     return (
         <BrowserRouter>
             <C.AppBox>

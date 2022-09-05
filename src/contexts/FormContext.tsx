@@ -8,7 +8,7 @@ export enum FormActions {
     setGit
 }
 
-type State = {
+interface State {
     currentStep: Number;
     name: String;
     level: 0 | 1;
@@ -16,17 +16,17 @@ type State = {
     git: String;
 }
 
-type Action = {
+interface Action {
     type: FormActions,
     payload: any
 }
 
-type ContextType = {
+interface ContextType {
     state: State;
     dispatch: (action: Action) => void;
 }
 
-type FormProviderProps = {
+interface FormProviderProps {
     children: ReactNode;
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 
 import { HeaderContainer } from "./styles";
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <HeaderContainer>
             <h2>Cadastro de Desenvolvedor</h2>

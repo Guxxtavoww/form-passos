@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { ItemContainer, IconArea, Point } from "./styles";
 
-type Props = {
+interface Props {
     title: string;
     desc: string;
     icon: string;
@@ -10,7 +10,7 @@ type Props = {
     active: boolean;
 }
 
-const SidebarItem = ({ title, desc, icon, path, active }: Props) => {
+const SidebarItem: React.FC<Props> = ({ title, desc, icon, path, active }) => {
     return (
         <ItemContainer>
             <Link to={path}>

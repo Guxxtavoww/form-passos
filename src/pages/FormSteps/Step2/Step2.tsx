@@ -5,7 +5,7 @@ import { SelectOption } from "../../../components";
 import { Step2Container, OptionBx } from "./styles";
 import { useForm, FormActions } from "../../../contexts/FormContext";
 
-const Step2 = () => {
+const Step2: React.FC = () => {
     const navigation = useNavigate();
 
     const { state, dispatch } = useForm();

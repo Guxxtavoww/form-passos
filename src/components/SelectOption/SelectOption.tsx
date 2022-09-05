@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-type Props = {
+interface Props {
     title: string;
     desc: string;
     icon: string;
@@ -8,7 +8,7 @@ type Props = {
     onClick: () => void;
 }
 
-const SelectOption = ({ title, desc, icon, selected, onClick }: Props) => {
+const SelectOption: React.FC<Props> = ({ title, desc, icon, selected, onClick }) => {
     return (
         <Container selected={selected} onClick={onClick}>
             <div className="icon">{icon}</div>

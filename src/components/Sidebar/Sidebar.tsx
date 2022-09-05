@@ -3,16 +3,12 @@ import { SidebarContainer } from "./styles";
 import SidebarItem from "./SidebarItem/SidebarItem";
 import { useForm } from "../../contexts/FormContext";
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
     const { state } = useForm();
 
     return (
         <SidebarContainer>
-            {
-                itemsData.map((item, index) => (
-                    <SidebarItem key={index} title={item.title} desc={item.desc} icon={item.icon} path={item.path} active={state.currentStep === item.step} />
-                ))
-            }
+            {itemsData.map((item, index) => <SidebarItem key={index} title={item.title} desc={item.desc} icon={item.icon} path={item.path} active={state.currentStep === item.step} />)}
         </SidebarContainer>
     );
 }
