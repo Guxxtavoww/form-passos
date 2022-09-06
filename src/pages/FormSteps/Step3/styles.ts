@@ -15,6 +15,7 @@ export const Step3Container = styled.section`
             border: 2px solid #25cd89;
             font-size: 1rem;
             background-color: #02044a;
+            
             &:focus {
                 background-color: #fff;
             }

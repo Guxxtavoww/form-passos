@@ -9,16 +9,16 @@ export enum FormActions {
 }
 
 interface State {
-    currentStep: Number;
-    name: String;
+    currentStep: number;
+    name: string;
     level: 0 | 1;
-    email: String;
-    git: String;
+    email: string;
+    git: string;
 }
 
 interface Action {
     type: FormActions,
-    payload: any
+    payload: any;
 }
 
 interface ContextType {

@@ -21,6 +21,7 @@ const Step3: React.FC = () => {
     const handleNextStep = () => {
         if(state.email !== "" && state.git !== "") {
             alert(`Dados: ${state.name} ${state.level} ${state.email} ${state.git}`);
+            console.log({ nome: state.name, level: state.level, git: state.git, email: state.email });
         } else {
             alert("Preencha os dados");
         }
@@ -37,12 +38,12 @@ const Step3: React.FC = () => {
             <p style={{ marginBottom: "10px" }}>Escolha a opção que melhor condiz com seu estado atual, profissionalmente.</p>
             <div className="inputBx">
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" placeholder="Insira seu email" onChange={handleEmailChange} autoFocus />    
+                <input type="email" id="email" placeholder="Insira seu email" value={state.email} onChange={handleEmailChange} autoFocus />    
             </div>
             <div className="inputBx">
                 <label htmlFor="github">Github:</label>
-                <input type="text" id="github" placeholder="Insira seu Github" onChange={handleGithubChange} />    
-            </div>      
+                <input type="text" id="github" placeholder="Insira seu Github" value={state.git} onChange={handleGithubChange} />
+            </div>
             <Link to="/segundo-passo" className="btn">Voltar</Link>
             <button onClick={handleNextStep}>Finalizar Cadastro</button>
         </Step3Container>
