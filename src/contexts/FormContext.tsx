@@ -41,16 +41,18 @@ const initialFormData: State = {
 }
 
 const formReducer = (state: State, action: Action) => {
+    const { setCurrentStep, setEmail, setGit, setLevel, setName } = FormActions;
+
     switch(action.type) {
-        case FormActions.setCurrentStep: 
+        case setCurrentStep: 
             return { ...state, currentStep: action.payload }; 
-        case FormActions.setName: 
+        case setName: 
             return { ...state, name: action.payload };
-        case FormActions.setGit: 
+        case setGit: 
             return { ...state, git: action.payload };
-        case FormActions.setEmail: 
+        case setEmail: 
             return { ...state, email: action.payload };
-        case FormActions.setLevel: 
+        case setLevel: 
             return { ...state, level: action.payload };
         default: 
             return state;
