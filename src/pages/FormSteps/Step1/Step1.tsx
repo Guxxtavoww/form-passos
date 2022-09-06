@@ -1,26 +1,32 @@
-import { ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux/es/exports";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { Step1Container } from "./styles";
-import { useForm, FormActions } from "../../../contexts/FormContext";
+import { setCurrentStep, setName } from "../../../redux/FormSlice";
 
 const Step1: React.FC = () => {    
+    const [ inputName, setInputName ] = useState("");
+
+    const dispatch = useDispatch();
     const navigation = useNavigate();
 
-    const { state, dispatch } = useForm();
-
     const handleNextStep = () => {
-        if(state.name !== "") {
+        if(inputName !== "") {
             navigation("/segundo-passo");
-        } else {
-            alert("Não deixe campos vazios");
+            return;
         }
+
+        alert("Não deixe campos vazios");
     }
     
-    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => dispatch({ type: FormActions.setName, payload: e.target.value });
+    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputName(e.target.value);
+        dispatch(setName(e.target.value));
+    }
 
     useEffect(() => {
-        dispatch({ type: FormActions.setCurrentStep, payload: 1 });
+        dispatch(setCurrentStep(1));
     }, [ dispatch ]);
 
     return (
@@ -30,7 +36,7 @@ const Step1: React.FC = () => {
             <p>Preencha o campo abaixo com seu nome completo</p>
             <div className="inputBx">
                 <label htmlFor="name">Nome Completo:</label>
-                <input type="text" id="name" placeholder="Insira seu nome" onChange={handleNameChange} autoFocus />    
+                <input type="text" id="name" value={inputName} placeholder="Insira seu nome" onChange={handleNameChange} autoFocus />    
             </div>       
             <button type="button" onClick={handleNextStep}>Próximo</button>
         </Step1Container>
