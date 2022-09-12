@@ -10,7 +10,16 @@ const Sidebar: React.FC = () => {
 
     return (
         <SidebarContainer>
-            {itemsData.map((item, index) => <SidebarItem key={index} title={item.title} desc={item.desc} icon={item.icon} path={item.path} active={currentStep === item.step} />)}
+            {itemsData.map((item, index) => (
+                <SidebarItem 
+                    key={index} 
+                    title={item.title} 
+                    desc={item.desc} 
+                    icon={item.icon} 
+                    path={item.path} 
+                    active={currentStep === item.step} 
+                />
+            ))}
         </SidebarContainer>
     );
 }
